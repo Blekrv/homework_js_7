@@ -1,0 +1,42 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    background-color: white;
+    z-index: 999;
+}
+h1, h3, h4{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+aside{
+    border: 1px solid grey;
+    box-shadow: 0 0 3px 4px grey;
+}
+aside ul.places{
+    list-style-type: none;
+    /* border: 1px solid red; */
+    margin: 0;
+    padding: 5px;
+}
+aside ul.places{
+    cursor: pointer;
+}
+article img{
+    width: 100%;
+}
+article:not(article:nth-child(1)){
+    display: none;
+}
+aside ul.places li{
+    transition-property: margin-left;
+    transition-duration: 2;
+}
+aside ul.places li.arrow::after{
+    content: "\f0a8";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    margin-right: -1.3em;
+    width: 1.3em;
+}
