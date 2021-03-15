@@ -79,25 +79,31 @@ let $place_list = document.querySelectorAll("aside ul.places li"),
 let prev_visible_item = 0;
 
 for (let i = 0; i < $place_list.length; i++) {
+  $place_list[i].addEventListener("mousemove", () => {
+    $place_list[i].style.color = "red";
+    $place_list[i].style.fontWeight = "bold";
+    $place_list[i].style.cursor = "pointer";
+    $place_list[i].style.paddingLeft = "10px";
+    $place_list[i].classList.add("arrow");
+    $place_list[i].style.transition = ".5s";
+  });
+  $place_list[i].addEventListener("mouseout", () => {
+    $place_list[i].style.color = "black";
+    $place_list[i].style.fontWeight = "normal";
+    $place_list[i].style.paddingLeft = "0";
+    $place_list[i].classList.remove("arrow");
+  });
   $place_list[i].addEventListener("click", function () {
     if ($article_list[i + 1].style.display !== "block") {
       $article_list[i + 1].style.display = "block";
       $article_list[prev_visible_item].style.display = "none";
       prev_visible_item = i + 1;
     }
+    let $place_list_active = document.querySelector("aside ul.places li.active")
+    console.log($place_list_active)
+    if ($place_list_active){
+      $place_list_active.classList.remove('active')
+    }
+    this.classList.add('active');
   });
-      $place_list[i].addEventListener('mousemove', ()=> {
-        $place_list[i].style.color = 'red'
-        $place_list[i].style.fontWeight = 'bold'
-        $place_list[i].style.cursor = 'pointer'
-        $place_list[i].style.marginLeft = '10px'
-        $place_list[i].classList.add('arrow')
-        $place_list[i].style.transitionDuration = '1 s'
-    })
-    $place_list[i].addEventListener('mouseout', ()=> {
-        $place_list[i].style.color = 'black'
-        $place_list[i].style.fontWeight = 'normal'
-        $place_list[i].style.marginLeft = '0'
-        $place_list[i].classList.remove('arrow')
-    })
 }

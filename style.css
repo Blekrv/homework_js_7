@@ -29,14 +29,13 @@ article img{
 article:not(article:nth-child(1)){
     display: none;
 }
-aside ul.places li{
-    transition-property: margin-left;
-    transition-duration: 2;
-}
 aside ul.places li.arrow::after{
     content: "\f0a8";
     font-family: "Font Awesome 5 Free";
     display: inline-block;
     margin-right: -1.3em;
     width: 1.3em;
+}
+.active{
+    background-color: green;
 }
